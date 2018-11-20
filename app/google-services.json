@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "428214745561",
+    "firebase_url": "https://yyzzairlines.firebaseio.com",
+    "project_id": "yyzzairlines",
+    "storage_bucket": "yyzzairlines.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428214745561:android:19ae20178804795d",
+        "android_client_info": {
+          "package_name": "com.example.karan.airlines"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428214745561-96u4b6f20gca9940ll856v2n2ru61nig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP4YUiKsoUc5tIy1IELUqHylLgQQ90oyg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
