@@ -14,14 +14,21 @@
         android:text="Login"
         android:textColor="#000"
         android:textSize="30sp" />
+
     <EditText
         android:padding="10dp"
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Please enter your email"
+        android:ems="10"
         android:id="@+id/editTextEmail"
         android:inputType="textEmailAddress"/>
+
+
+
+
+
     <EditText
         android:padding="10dp"
         android:layout_margin="5dp"
@@ -31,7 +38,7 @@
         android:id="@+id/editTextPassword"
         android:inputType="textPassword"/>
     <Button
-        android:id="@+id/login"
+        android:id="@+id/mainLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
