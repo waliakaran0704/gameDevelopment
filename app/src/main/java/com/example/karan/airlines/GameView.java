@@ -13,21 +13,32 @@ import android.graphics.Canvas;
 
 import android.os.Handler;
 
+import java.util.Random;
+
 
 public class GameView extends View {
 
-Handler handler;
-Runnable runnable;
-final int UPDATE_MILLIS=30;
-Bitmap background;
-Display display;
-Point point;
-int mWidth, mHeight;
-Rect rect;
-Bitmap [] birds;
-int birdFrame=-0;
-int velocity=0,gravity=3;
-int birdX, birdY;
+    Handler handler;
+    Runnable runnable;
+    final int UPDATE_MILLIS=30;
+    Bitmap background;
+    Bitmap topTube, bottomTube;
+    Display display;
+    Point point;
+    int mWidth, mHeight;
+    Rect rect;
+    Bitmap [] birds;
+    int birdFrame=-0;
+    int velocity=0,gravity=3;
+    int birdX, birdY;
+    boolean gameState = false;
+    int gap = 400;
+    int minTubeOffset, maxTubeOffset;
+    int numberOfTubes = 4;
+    int distanceBetweenTubes;
+    int tubeX;
+    int topTubeY;
+    Random random;
 
     public GameView(Context context){
         super(context);
@@ -41,6 +52,8 @@ int birdX, birdY;
         };
 
         background = BitmapFactory.decodeResource(getResources(),R.drawable.bg);
+        topTube = BitmapFactory.decodeResource(getResources(), R.drawable.toptube);
+        bottomTube = BitmapFactory.decodeResource(getResources(), R.drawable.bottomtube);
         display = ((Activity)getContext()).getWindowManager().getDefaultDisplay();
         point = new Point();
         display.getSize(point);
@@ -52,8 +65,13 @@ int birdX, birdY;
         birds[1] = BitmapFactory.decodeResource(getResources(),R.drawable.bird);
         birdX = mWidth/2 - birds[0].getWidth()/2;
         birdY = mHeight/2 - birds[0].getHeight()/2;
-
-        }
+        distanceBetweenTubes = mWidth*3/4;
+        minTubeOffset = gap/2;
+        maxTubeOffset = mHeight - minTubeOffset - gap;
+        random = new Random();
+        tubeX = mWidth/2 - topTube.getWidth()/2;
+        topTubeY = minTubeOffset + random.nextInt(maxTubeOffset - minTubeOffset + 1);
+    }
 
 
 
@@ -67,12 +85,12 @@ int birdX, birdY;
        }else{
            birdFrame = 0;
        }
-
-       if(birdY <mHeight - birds[0].getHeight() || velocity<0){
-           velocity +=gravity;
-           birdY +=velocity;
+       if(gameState) {
+           if (birdY < mHeight - birds[0].getHeight() || velocity < 0) {
+               velocity += gravity;
+               birdY += velocity;
+           }
        }
-
 
         canvas.drawBitmap(birds[birdFrame],birdX,birdY,null);
         handler.postDelayed(runnable,UPDATE_MILLIS);
@@ -85,7 +103,8 @@ int birdX, birdY;
        int action  = event.getAction();
        if(action == MotionEvent.ACTION_DOWN){
            velocity = -30;
-
+           gameState = true;
+           topTubeY = minTubeOffset + random.nextInt(maxTubeOffset - minTubeOffset + 1);
        }
 
         return true;
