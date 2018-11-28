@@ -8,17 +8,6 @@
     android:background="@drawable/flappybird">
 
 
-    <Button
-        android:id="@+id/mainlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="24dp"
-        android:onClick="onClickLogin"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/mEmail"
         android:layout_width="380dp"
@@ -45,33 +34,33 @@
 
     <Button
         android:id="@+id/mainLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="280dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginTop="44dp"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mPassword" />
 
     <Button
         android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="176dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="44dp"
         android:onClick="onClickRegister"
         android:text="Register"
-        app:layout_constraintEnd_toStartOf="@+id/mainlogin"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mPassword" />
 
     <Button
         android:id="@+id/btn_reset_password"
         android:layout_width="232dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="112dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginTop="80dp"
         android:background="@null"
-        android:text="Forgot Password"
+        android:text="Forgot Password?"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
