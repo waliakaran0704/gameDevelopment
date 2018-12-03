@@ -1,6 +1,7 @@
 package com.example.karan.airlines;
 
 public class BackgroundImage {
+<<<<<<< HEAD
     private int backgroundImageX, backgroundImageY, backgroundImageVelocity;
 
     public BackgroundImage(){
@@ -28,4 +29,6 @@ public class BackgroundImage {
         return backgroundImageVelocity;
     }
 
+=======
+>>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }
