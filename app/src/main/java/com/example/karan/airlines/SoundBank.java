@@ -1,6 +1,5 @@
 package com.example.karan.airlines;
 
-<<<<<<< HEAD
 import android.content.Context;
 import android.media.MediaPlayer;
 
@@ -41,7 +40,4 @@ public class SoundBank {
             wing.start();
         }
     }
-=======
-public class SoundBank {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

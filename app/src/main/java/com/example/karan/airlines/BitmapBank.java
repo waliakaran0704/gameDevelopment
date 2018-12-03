@@ -1,6 +1,5 @@
 package com.example.karan.airlines;
 
-<<<<<<< HEAD
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -80,7 +79,4 @@ return Bitmap.createScaledBitmap(bitmap,backgroundScaleWidth,AppConstants.SCREEN
 
 
     }
-=======
-public class BitmapBank {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

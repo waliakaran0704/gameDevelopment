@@ -1,7 +1,6 @@
 package com.example.karan.airlines;
 
 public class Bird {
-<<<<<<< HEAD
 
     private int birdX, birdY, currentFrame, velocity;
     public static int maxFrame;
@@ -45,6 +44,4 @@ public class Bird {
         this.birdY = birdY;
 
     }
-=======
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

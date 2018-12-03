@@ -1,6 +1,5 @@
 package com.example.karan.airlines;
 
-<<<<<<< HEAD
 import java.util.Random;
 
 public class Tube {
@@ -37,7 +36,4 @@ public class Tube {
     public void setTopTubeOffsetY(int topTubeOffsetY){
         this.topTubeOffsetY = topTubeOffsetY;
     }
-=======
-public class Tube {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

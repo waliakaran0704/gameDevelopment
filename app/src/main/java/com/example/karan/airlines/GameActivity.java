@@ -1,7 +1,6 @@
 package com.example.karan.airlines;
 
 import android.app.Activity;
-<<<<<<< HEAD
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,8 +22,4 @@ GameView gameView;
 
 
     }
-=======
-
-public class GameActivity extends Activity {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

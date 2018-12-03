@@ -1,6 +1,5 @@
 package com.example.karan.airlines;
 
-<<<<<<< HEAD
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -45,9 +44,4 @@ public class GameOver extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-=======
-import android.support.v7.app.AppCompatActivity;
-
-public class GameOver extends AppCompatActivity {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

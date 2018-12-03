@@ -1,6 +1,5 @@
 package com.example.karan.airlines;
 
-<<<<<<< HEAD
 import android.graphics.Canvas;
 import android.os.SystemClock;
 import android.util.Log;
@@ -52,7 +51,4 @@ public class GameThread extends Thread {
     public void setIsRunning(boolean state){
         isRunning = state;
     }
-=======
-public class GameThread extends Thread {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

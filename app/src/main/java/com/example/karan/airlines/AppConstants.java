@@ -1,6 +1,5 @@
 package com.example.karan.airlines;
 
-<<<<<<< HEAD
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -70,7 +69,4 @@ public class AppConstants {
         AppConstants.SCREEN_HEIGHT  = height;
     }
 
-=======
-public class AppConstants {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }

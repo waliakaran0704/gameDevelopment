@@ -1,6 +1,5 @@
 package com.example.karan.airlines;
 
-<<<<<<< HEAD
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -71,10 +70,5 @@ GameThread gameThread;
         }
         return true;
     }
-=======
-import android.view.SurfaceView;
-
-public class GameView extends SurfaceView {
->>>>>>> e4e3a84982d854c28440346c9104c29fd78dd171
 }
 
