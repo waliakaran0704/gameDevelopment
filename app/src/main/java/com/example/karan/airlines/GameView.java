@@ -1,94 +1,74 @@
 package com.example.karan.airlines;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.view.Display;
 import android.view.MotionEvent;
-import android.view.View;
-import android.graphics.Canvas;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
-import android.os.Handler;
+public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
-
-public class GameView extends View {
-
-Handler handler;
-Runnable runnable;
-final int UPDATE_MILLIS=30;
-Bitmap background;
-Display display;
-Point point;
-int mWidth, mHeight;
-Rect rect;
-Bitmap [] birds;
-int birdFrame=-0;
-int velocity=0,gravity=3;
-int birdX, birdY;
-
-    public GameView(Context context){
+GameThread gameThread;
+    public GameView(Context context) {
         super(context);
-        handler = new Handler();
-        runnable = new Runnable(){
+        initView();
+    }
 
-            @Override
-            public void run(){
-                invalidate();
-            }
-        };
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
 
-        background = BitmapFactory.decodeResource(getResources(),R.drawable.bg);
-        display = ((Activity)getContext()).getWindowManager().getDefaultDisplay();
-        point = new Point();
-        display.getSize(point);
-        mWidth = point.x;
-        mHeight = point.y;
-        rect = new Rect(0,0,mWidth,mHeight);
-        birds = new Bitmap[2];
-        birds[0] = BitmapFactory.decodeResource(getResources(),R.drawable.bird);
-        birds[1] = BitmapFactory.decodeResource(getResources(),R.drawable.bird);
-        birdX = mWidth/2 - birds[0].getWidth()/2;
-        birdY = mHeight/2 - birds[0].getHeight()/2;
+        if(!gameThread.isRunning()){
+            gameThread = new GameThread(holder);
+            gameThread.start();
+
+        }else{
+            gameThread.start();
 
         }
+    }
 
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
+    }
 
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+        if(gameThread.isRunning()){
+            gameThread.setIsRunning(false);
+            boolean retry = true;
+            while(retry){
+                try{
+                    gameThread.join();
+                    retry = false;
+                }catch (InterruptedException e){
 
-    protected void onDraw(Canvas canvas){
+                }
+            }
+        }
+    }
 
-        super.onDraw(canvas);
-        canvas.drawBitmap(background,null, rect,null);
-       if(birdFrame==0){
-           birdFrame=1;
-       }else{
-           birdFrame = 0;
-       }
-
-       if(birdY <mHeight - birds[0].getHeight() || velocity<0){
-           velocity +=gravity;
-           birdY +=velocity;
-       }
-
-
-        canvas.drawBitmap(birds[birdFrame],birdX,birdY,null);
-        handler.postDelayed(runnable,UPDATE_MILLIS);
-
+    void initView(){
+        SurfaceHolder holder = getHolder();
+        holder.addCallback(this);
+        setFocusable(true);
+        gameThread = new GameThread(holder);
 
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-       int action  = event.getAction();
-       if(action == MotionEvent.ACTION_DOWN){
-           velocity = -30;
-
-       }
-
+        int action = event.getAction();
+        if(action == MotionEvent.ACTION_DOWN){
+            if(AppConstants.getGameEngine().gameState ==0){
+                AppConstants.getGameEngine().gameState =1;
+                AppConstants.getSoundBank().playSwoosh();
+            }else{
+                AppConstants.getSoundBank().playWing();
+            }
+//            AppConstants.getGameEngine().gameState = 1;
+            AppConstants.getGameEngine().bird.setVelocity(AppConstants.VELOCITY_WHEN_JUMPED);
+        }
         return true;
-
     }
 }
+

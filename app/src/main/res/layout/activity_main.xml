@@ -5,27 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.karan.airlines.MainActivity"
-    android:background="@drawable/flappybird">
+    android:background="@drawable/mainbackground">
 
 
     <EditText
         android:id="@+id/mEmail"
         android:layout_width="380dp"
         android:layout_height="55dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="Please enter your email"
         android:inputType="textPersonName"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorAccent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/mPassword"
         android:layout_width="379dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Please enter your password"
         android:inputType="textPassword"
@@ -37,7 +36,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="200dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mPassword" />
@@ -47,7 +46,7 @@
         android:layout_width="176dp"
         android:layout_height="46dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:onClick="onClickRegister"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,10 +54,10 @@
 
     <Button
         android:id="@+id/btn_reset_password"
-        android:layout_width="232dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="203dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginTop="64dp"
         android:background="@null"
         android:text="Forgot Password?"
         android:textAllCaps="false"

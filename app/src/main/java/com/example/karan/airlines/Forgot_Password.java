@@ -17,11 +17,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Forgot_Password extends AppCompatActivity {
 
-    private Button  mReset, mLogout;
+    private Button  mReset,mBack;
     private EditText editTextEmail;
     private ProgressDialog progressDialog;
 
-private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,7 @@ private FirebaseAuth firebaseAuth;
         progressDialog = new ProgressDialog(this);
 
         mReset = findViewById(R.id.reset);
+        mBack = findViewById(R.id.btn_back);
         editTextEmail = (EditText) findViewById(R.id.sendEmail);
 
 
@@ -42,10 +43,21 @@ private FirebaseAuth firebaseAuth;
             }
         });
 
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickBack();
+            }
+        });
+
 
     }
 
-
+    public void onClickBack(){
+        Intent back = new Intent(Forgot_Password.this,MainActivity.class);
+        startActivity(back);
+        finish();
+    }
     private void onClickReset(){
         String email = editTextEmail.getText().toString().trim();
 
@@ -63,17 +75,17 @@ private FirebaseAuth firebaseAuth;
         firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-        if(task.isSuccessful()){
-            progressDialog.setMessage("Sending password link...");
-            progressDialog.show();
+                if(task.isSuccessful()){
+                    progressDialog.setMessage("Sending password link...");
+                    progressDialog.show();
 
-            Toast.makeText(Forgot_Password.this, "Password link has been sent", Toast.LENGTH_SHORT).show();
-            finish();
+                    Toast.makeText(Forgot_Password.this, "Password link has been sent", Toast.LENGTH_SHORT).show();
+                    finish();
 
-        }else{
-            Toast.makeText(Forgot_Password.this, "Password cannot be sent", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Forgot_Password.this, "Password cannot be sent", Toast.LENGTH_SHORT).show();
 
-        }
+                }
 
             }
         });

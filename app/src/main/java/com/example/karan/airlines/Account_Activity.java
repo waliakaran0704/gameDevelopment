@@ -9,23 +9,13 @@ import android.widget.Button;
 public class Account_Activity extends AppCompatActivity {
 
 
-    private Button  mLogout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_);
-        mLogout = findViewById(R.id.logout);
-        mLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onLogout();
-            }
-        });
+        AppConstants.initialize(this.getApplicationContext());
 
     }
-
-
-
 
     private void onLogout(){
 
@@ -34,7 +24,7 @@ public class Account_Activity extends AppCompatActivity {
 
     public void startGame(View view){
 
-        startActivity(new Intent(Account_Activity.this,StartGame.class));
+        startActivity(new Intent(Account_Activity.this,GameActivity.class));
 
     }
 

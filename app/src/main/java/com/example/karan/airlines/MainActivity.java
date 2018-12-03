@@ -58,8 +58,6 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-
-
     private void loginUser() {
         String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
@@ -110,9 +108,5 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(pageRegister);
     }
 
-    public void onClickLogin(View view){
 
-        Intent pageLogin = new Intent(this,Login.class);
-        startActivity(pageLogin);
-    }
 }
