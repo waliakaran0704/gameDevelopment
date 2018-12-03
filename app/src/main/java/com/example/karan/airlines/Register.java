@@ -1,6 +1,7 @@
 package com.example.karan.airlines;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -80,6 +81,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                     if (task.isSuccessful()) {
                         progressDialog.setMessage("Registering user...");
                         progressDialog.show();
+                        startActivity(new Intent(Register.this,MainActivity.class));
+                        finish();
                         Toast.makeText(Register.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                     }
                     else{
